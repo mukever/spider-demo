@@ -1,0 +1,6 @@
+import requests
+
+session = requests.session()
+login = session.get('https://ln.122.gov.cn/m/login')
+print(login.content.decode('utf8'))
+yz = session.get('https://cf.aliyun.com/nocaptcha/analyze.jsonp?a=FFFF00000000017811F5&t=FFFF00000000017811F5%3A1522507695583%3A0.0818273093543136&n=107%23sszhcwS9sTSWDSppBoHjXzy1XnIgg%2FCxlXh1T8dZXa1PXX7FuuEulEWqxrDFOqzN%2FUVBsYx0P894xpEnl%2FAazJr7fc%2BE2VrrbM%2Fyvq7mMCdgSaUTUezq1iloLS%2BdDbJnTKWzvWAFuT%2FbXFXnYqLtRiHoWpT16RPYJnS0%2BsiRmW0XohunViAXhIjq%2Bw7Gv9u73Oq28i5Vm6q4Il1%2Fat8Rw4firiSgq%2BWgPjALqlJBSETS9trxwUF4QtnkzxxJWVD8hx2oKOu5Melf0vKvRBegzJgTSeZ5z6pIeEQowCVB2GqloQVnUuD0h4hYHHHKamCWthCRiJzD%2Fm7lQdyW%2BO39JkQEfeV6YMyGn6hNwCHTpmWfHfeysyWjhxMbw8Si0vVVhSP%2FBPQUSZlTIfiU8PZlCn1NVeRJmW9k%2BsuBUPrxHpW0YJRNHgtVJJ%2BJi6%2FNtB0YdHg6%2FSe39vXzx26snFyCvDftiU8xmackmrLDOPubmVj3BuzNtXtDJqDDuVGOl%2BUU9toS8sHUgu2pHB%2F4mA6hVyj9NuSJdOD%2BtGl6e5Wp9ZAlxetN8vU4jaYfOgS2QZDtSuqI%2FxffBccRnHx0&p=%7B%22ncSessionID%22%3A%225e701e6224c1%22%7D&scene=login&asyn=0&lang=cn&v=905&callback=jsonp_07110783828825744')
