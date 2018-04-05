@@ -9,13 +9,12 @@ headers = {
 } #替换成自己的cookie
 
 len = 50
-url = 'https://ju.taobao.com/json/tg/ajaxGetItemsV2.json?stype=samount&reverse=down&salesSite=2&type=0&psize='+str(len)+'&jview=all&actSignIds=31591065&includeForecast=true&page=1&_ksTS=1522642919752_66&callback=jsonp67'
+url = 'https://ju.taobao.com/json/tg/ajaxGetItemsV2.json?stype=samount&reverse=down&salesSite=2&type=0&psize='+str(len)+'&jview=all&actSignIds=31591065&includeForecast=true&page=1&_ksTS=1522642919752_66'
 html = requests.get(url)
 html_utf8  = html.content.decode('utf8')
-end = html_utf8.__len__()-2
-cut =  html_utf8[10:-1]
 
-json_str = json.loads(cut)
+
+json_str = json.loads(html_utf8)
 for i in range(len):
  print('Title:'+json_str['itemList'][i]['name']['title']+
        '   Price:'+json_str['itemList'][i]['price']['actPrice']  +

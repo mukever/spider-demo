@@ -1,5 +1,5 @@
 
-txt = open('res.txt','a')
+txt = open('res.txt','wb+')
 
-txt.writelines('\n'+'3')
+txt.writelines('或')
 txt.close()
