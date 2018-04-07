@@ -69,7 +69,7 @@ def getPs(links):
         print('处理第'+str(i)+'题')
         ps.append(getex(links[i]))
     return ps
-def writetotxt(ps,file):
+def writetotxt(ps,file,record,start):
     print('输出到文件')
     for p in ps:
         if p is None:
@@ -77,17 +77,22 @@ def writetotxt(ps,file):
         info = p.title+p.ansowers+p.explain+p.comments
         print('.',end='.')
         file.write(info.encode('utf-8'))
+        record.write(str(start))
 
 if __name__ == '__main__':
     file = open('kmf.txt', 'wb+')
+    record = open('record.txt','r+')
     per_links_url = 'http://gre.kmf.com/question/tc/0?keyword=&page='
     end_links_url = ''
     # get links
-    for i in range(1,293):
+    start = record.readline()
+    print(start)
+    for i in range(int(start),293):
         print("\n*******************第 "+str(i) +"页************")
         links = firststep(per_links_url + end_links_url +str(i) )
         ps = getPs(links)
-        writetotxt(ps,file)
+        writetotxt(ps,file,record,start+1)
     file.close()
+    record.close()
 
 
