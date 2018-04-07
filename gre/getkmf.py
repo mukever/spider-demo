@@ -65,6 +65,7 @@ def getex(url):
 
 def getPs(links):
     ps = []
+    # for i in range(1):
     for i in range(links.__len__()):
         print('处理第'+str(i)+'题')
         ps.append(getex(links[i]))
@@ -81,18 +82,25 @@ def writetotxt(ps,file,record,start):
 
 if __name__ == '__main__':
     file = open('kmf.txt', 'wb+')
-    record = open('record.txt','r+')
+
+    record = open('record.txt','r')
+    start = record.readline()
+    record.close()
+
+    record = open('record.txt', 'w')
     per_links_url = 'http://gre.kmf.com/question/tc/0?keyword=&page='
     end_links_url = ''
     # get links
-    start = record.readline()
+
     print(start)
+
     for i in range(int(start),293):
         print("\n*******************第 "+str(i) +"页************")
         links = firststep(per_links_url + end_links_url +str(i) )
         ps = getPs(links)
-        writetotxt(ps,file,record,start+1)
-    file.close()
+        writetotxt(ps,file,record,i+1)
+
     record.close()
+    file.close()
 
 
